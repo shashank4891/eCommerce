@@ -6,6 +6,7 @@ const { connectDb } = require('./config/dbConnection');
 const categoryRouter = require('./routes/categoryRoutes');
 const productRoutes = require('./routes/productRoutes');
 const productListRoutes = require('./routes/productListRoutes');
+const userRouter = require('./routes/userRoutes');
 
 // Load environment variables from .env file
 dotenv.config();
@@ -23,12 +24,13 @@ connectDb().then(() => {
 // Set port based on environment variable or use a default value
 const port = process.env.PORT || 8080;
 
-// Middleware for errorhandling
-app.use(errorHandler);
-
 app.use('/api', categoryRouter);
 app.use('/api', productRoutes);
 app.use('/api', productListRoutes);
+app.use('/api', userRouter);
+
+// Middleware for errorhandling
+app.use(errorHandler);
 
 app.listen(port, () => {
   console.log(`Server is running on ${port}`);

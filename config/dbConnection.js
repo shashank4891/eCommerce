@@ -1,9 +1,9 @@
-const mysql = require("mysql2");
+const mysql = require("mysql2/promise");
 const errorHandler = require("../middleware/errorHandler");
 
 const connectDb = async () => {
-  return new Promise((resolve, reject) => {
-    const db = mysql.createPool({
+  try {
+    const db = await mysql.createPool({ // Use await to create the connection pool
       host: process.env.DB_HOST,
       user: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
@@ -12,15 +12,12 @@ const connectDb = async () => {
       dateStrings: true,
     });
 
-    // Handle MySQL connection errors
-    db.on("error", (err) => {
-      console.error("MySQL connection error: ", err);
-      errorHandler(err);
-    });
-
-    // Resolve the promise with the connected database instance
-    resolve(db);
-  });
+    return db;
+  } catch (error) {
+    // Reject the promise if there's an error
+    console.error("Error connecting to MySQL: ", error);
+    throw error;
+  }
 };
 
 const initDb = async function (dbName = "ecommerce") {
