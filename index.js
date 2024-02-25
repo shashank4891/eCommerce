@@ -5,6 +5,7 @@ const errorHandler = require('./middleware/errorHandler');
 const { connectDb } = require('./config/dbConnection');
 const categoryRouter = require('./routes/categoryRoutes');
 const productRoutes = require('./routes/productRoutes');
+const productListRoutes = require('./routes/productListRoutes');
 
 // Load environment variables from .env file
 dotenv.config();
@@ -27,6 +28,7 @@ app.use(errorHandler);
 
 app.use('/api', categoryRouter);
 app.use('/api', productRoutes);
+app.use('/api', productListRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running on ${port}`);
