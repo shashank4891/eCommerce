@@ -13,8 +13,8 @@ categoryRouter.get("/category", async (req, res, next) => {
           errorHandler(error, req, res, next);
           return;
         }
-        res.json(categories);
-      });
+      res.json(categories);
+    });
     } catch (error) {
       // Handle connection error
       errorHandler(error, req, res, next);
