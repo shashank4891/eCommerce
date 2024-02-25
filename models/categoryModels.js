@@ -8,7 +8,6 @@ function getCategory(db, callback) {
       errorHandler(error, null, null, callback);
       return;
     }
-    console.log("Query results:", results);
     const categories = results.map((result) => result.categoryName);
     callback(null, results);
   });

@@ -18,9 +18,6 @@ const connectDb = async () => {
       errorHandler(err);
     });
 
-    // Log database connection
-    console.log("Database connected");
-
     // Resolve the promise with the connected database instance
     resolve(db);
   });
