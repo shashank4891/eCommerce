@@ -63,3 +63,18 @@ exports.removeCartItem = async (cart_id) => {
     throw new Error("Failed to remove item from cart");
   }
 };
+
+// Function to clear the cart for a specific user
+exports.clearCart = async (userId) => {
+  try {
+    const db = await connectDb();
+    const query = `
+      DELETE FROM cart
+      WHERE user_id = ?
+    `;
+    await db.query(query, [userId]);
+  } catch (error) {
+    errorHandler(error);
+    throw new Error("Failed to clear cart");
+  }
+};

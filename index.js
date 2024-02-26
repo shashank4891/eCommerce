@@ -8,6 +8,7 @@ const productRoutes = require('./routes/productRoutes');
 const productListRoutes = require('./routes/productListRoutes');
 const userRouter = require('./routes/userRoutes');
 const cartRouter = require('./routes/cartRoutes');
+const orderRouter = require('./routes/orderRoutes');
 
 // Load environment variables from .env file
 dotenv.config();
@@ -25,11 +26,14 @@ connectDb().then(() => {
 // Set port based on environment variable or use a default value
 const port = process.env.PORT || 8080;
 
+// calling all Routes
+
 app.use('/api', categoryRouter);
 app.use('/api', productRoutes);
 app.use('/api', productListRoutes);
 app.use('/api', userRouter);
 app.use('/api', cartRouter);
+app.use('/api', orderRouter);
 
 // Middleware for errorhandling
 app.use(errorHandler);
