@@ -41,3 +41,21 @@ exports.placeOrder = async (req, res, next) => {
     errorHandler(error, req, res, next);
   }
 };
+
+// Controller function to fetch order history for authenticated users
+exports.getOrderHistory = async (req, res, next) => {
+  try {
+    // Validate user token
+    tokenValidation(req, res, async () => {
+      const { userId } = req.userData;
+
+      // Retrieve order history from the database
+      const orderHistory = await orderModel.getOrderHistory(userId);
+
+      // Send the order history as a response
+      res.status(200).json(orderHistory);
+    });
+  } catch (error) {
+    errorHandler(error, req, res, next);
+  }
+};
