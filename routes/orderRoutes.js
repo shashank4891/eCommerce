@@ -9,4 +9,7 @@ orderRouter.post("/orders", tokenValidation, orderControllers.placeOrder);
 // Route to fetch order history for authenticated users
 orderRouter.get("/orders/history", tokenValidation, orderControllers.getOrderHistory);
 
+// Route to get detailed information of a specific order by its ID
+orderRouter.get("/orders/:orderId", tokenValidation, orderControllers.getOrderById);
+
 module.exports = orderRouter;

@@ -59,3 +59,20 @@ exports.getOrderHistory = async (req, res, next) => {
     errorHandler(error, req, res, next);
   }
 };
+
+// Controller function to get detailed information of a specific order by its ID
+exports.getOrderById = async (req, res, next) => {
+    try {
+        // Validate user token
+        tokenValidation(req, res, async () => {
+            const orderId = req.params.orderId; // Extract order ID from request parameters
+            const order = await orderModel.getOrderById(orderId); // Call getOrderById function from orderModel
+            if (!order) {
+                return res.status(404).json({ message: "Order not found" });
+            }
+            res.status(200).json(order);
+        });
+    } catch (error) {
+        errorHandler(error, req, res, next);
+    }
+};
