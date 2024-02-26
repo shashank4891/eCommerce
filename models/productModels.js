@@ -14,7 +14,6 @@ function getProductsByCategory(categoryID, callback) {
       });
     })
     .catch((error) => {
-      console.error("Error connecting to database:", error);
       errorHandler(error, null, null, callback);
     });
 }
