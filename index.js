@@ -7,6 +7,7 @@ const categoryRouter = require('./routes/categoryRoutes');
 const productRoutes = require('./routes/productRoutes');
 const productListRoutes = require('./routes/productListRoutes');
 const userRouter = require('./routes/userRoutes');
+const cartRouter = require('./routes/cartRoutes');
 
 // Load environment variables from .env file
 dotenv.config();
@@ -28,6 +29,7 @@ app.use('/api', categoryRouter);
 app.use('/api', productRoutes);
 app.use('/api', productListRoutes);
 app.use('/api', userRouter);
+app.use('/api', cartRouter);
 
 // Middleware for errorhandling
 app.use(errorHandler);
