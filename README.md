@@ -72,30 +72,44 @@ GET /api/products/categoryId :Get all product by productId.
 - User
 
 ```bash
-POST /api/register :Register a new user.
+POST /api/register :Register a new user. required json :
+    "email": "hello@example.com",
+    "password": "hello",
+    "first_name": "hello",
+    "last_name": "hello"
+
 ```
 
 ```bash
-POST /api/login :Login as an existing user.
+POST /api/login :Login as an existing user. required json : 
+    "email": "hello@example.com",
+    "password": "hello"
+
 ```
 - Cart
 
 ```bash
-POST /api/add-to-cart :Add a product to the cart.
+POST /api/add-to-cart :Add a product to the cart. required json:  "user_id": "3",
+    "product_id": "2",
+    "qty": "1"
 ```
 ```bash
-GET /api/view-cart :View the contents of the cart.
+GET /api/view-cart :View the contents of the cart. 
 ```
 ```bash
-PUT /api/update-cart/:product_id :Update quantity of a product in the cart.
+PUT /api/update-cart/:product_id :Update quantity of a product in the cart. required json: 
+    "cart_id": "2",
+    "qty": "500"
 ```
 ```bash
-DELETE /api/remove-from-cart/:product_id :Remove a product from the cart.
+DELETE /api/remove-from-cart/:product_id :Remove a product from the cart. required json: 
+    "cart_id": "2"
 ```
 - Orders
 
 ```bash
-POST /api/orders :Place a new order.
+POST /api/orders :Place a new order. required json: 
+    "address": "123 Main Street, City, Country"
 ```
 ```bash
 GET /api/orders/history :View order history.
