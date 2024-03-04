@@ -1,18 +1,22 @@
-const connection = require("../config/dbConnection");
+const { connectDb } = require("../config/dbConnection");
 const errorHandler = require("../middleware/errorHandler");
 
-function getCategory(db, callback) {
-  const query = "SELECT categoryID, categoryName FROM category";
-  db.query(query, (error, results) => {
-    if (error) {
-      errorHandler(error, null, null, callback);
-      return;
-    }
-    const categories = results.map((result) => result.categoryName);
-    callback(null, results);
+// Function to retrieve categories from the database
+const getCategory = () => {
+  return new Promise((resolve, reject) => {
+      connectDb()
+          .then(db => {
+              const query = "SELECT * FROM category";
+              return db.query(query);
+          })
+          .then(([rows]) => {
+              resolve(rows);
+          })
+          .catch(error => {
+              errorHandler(error);
+              reject(error);
+          });
   });
-}
-
-module.exports = {
-  getCategory,
 };
+
+module.exports = { getCategory };

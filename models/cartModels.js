@@ -2,7 +2,7 @@ const { connectDb } = require("../config/dbConnection");
 const errorHandler = require("../middleware/errorHandler");
 
 // Function to add an item to the cart
-exports.addToCart = async (user_id, product_id, qty) => {
+const addToCart = async (user_id, product_id, qty) => {
   try {
     const db = await connectDb();
     const query = `
@@ -18,7 +18,7 @@ exports.addToCart = async (user_id, product_id, qty) => {
 };
 
 // Function to retrieve the contents of the cart for a specific user
-exports.getCartContents = async (userId) => {
+const getCartContents = async (userId) => {
   try {
     const db = await connectDb();
     const query = `
@@ -34,7 +34,7 @@ exports.getCartContents = async (userId) => {
 };
 
 // Function to update the quantity of an item in the cart
-exports.updateCartItemQuantity = async (cart_id, qty) => {
+const updateCartItemQuantity = async (cart_id, qty) => {
   try {
     const db = await connectDb();
     const query = `
@@ -50,7 +50,7 @@ exports.updateCartItemQuantity = async (cart_id, qty) => {
 };
 
 // Function to remove an item from the cart
-exports.removeCartItem = async (cart_id) => {
+const removeCartItem = async (cart_id) => {
   try {
     const db = await connectDb();
     const query = `
@@ -65,7 +65,7 @@ exports.removeCartItem = async (cart_id) => {
 };
 
 // Function to clear the cart for a specific user
-exports.clearCart = async (userId) => {
+const clearCart = async (userId) => {
   try {
     const db = await connectDb();
     const query = `
@@ -77,4 +77,13 @@ exports.clearCart = async (userId) => {
     errorHandler(error);
     throw new Error("Failed to clear cart");
   }
+};
+
+// Export all functions
+module.exports = {
+  addToCart,
+  getCartContents,
+  updateCartItemQuantity,
+  removeCartItem,
+  clearCart,
 };

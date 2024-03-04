@@ -1,12 +1,14 @@
 const productModels = require("../models/productModels");
+const errorHandler = require("../middleware/errorHandler"); 
 
-exports.getProductsByCategory = (req, res, next) => {
+const getProductsByCategory = async (req, res, next) => {
   const categoryID = req.params.categoryID;
-  productModels.getProductsByCategory(categoryID, (error, products) => {
-    if (error) {
-      // Handle error
-      return next(error);
-    }
+  try {
+    const products = await productModels.getProductsByCategory(categoryID);
     res.json(products);
-  });
+  } catch (error) {
+    errorHandler(error, req, res, next); 
+  }
 };
+
+module.exports = { getProductsByCategory };

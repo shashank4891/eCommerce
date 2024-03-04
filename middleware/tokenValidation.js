@@ -22,7 +22,6 @@ const tokenValidation = (req, res, next) => {
     next();
   } catch (error) {
     // Pass the error to the errorHandler middleware
-    console.error("Error in token validation middleware:", error);
     errorHandler(error, req, res, next);
   }
 };

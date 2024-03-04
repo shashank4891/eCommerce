@@ -2,7 +2,7 @@ const cartModel = require("../models/cartModels");
 const errorHandler = require("../middleware/errorHandler");
 
 // Controller function to add an item to the cart
-exports.addToCart = async (req, res, next) => {
+const addToCart = async (req, res, next) => {
   try {
     const { user_id, product_id, qty } = req.body;
     const cartItemId = await cartModel.addToCart(user_id, product_id, qty);
@@ -13,7 +13,7 @@ exports.addToCart = async (req, res, next) => {
 };
 
 // Controller function to retrieve the contents of the cart for a specific user
-exports.viewCart = async (req, res, next) => {
+const viewCart = async (req, res, next) => {
   try {
     const userId = req.userData.userId; // Access userId from req.userData
     const cartContents = await cartModel.getCartContents(userId);
@@ -24,7 +24,7 @@ exports.viewCart = async (req, res, next) => {
 };
 
 // Controller function to update the quantity of an item in the cart
-exports.updateCart = async (req, res, next) => {
+const updateCart = async (req, res, next) => {
   try {
     const cart_id = req.params.productId; // Assuming the cart item ID is passed as a URL parameter
     const { qty } = req.body;
@@ -38,7 +38,7 @@ exports.updateCart = async (req, res, next) => {
 };
 
 // Controller function to remove an item from the cart
-exports.removeFromCart = async (req, res, next) => {
+const removeFromCart = async (req, res, next) => {
   try {
     const cart_id = req.params.productId; // Assuming the cart item ID is passed as a URL parameter
     await cartModel.removeCartItem(cart_id);
@@ -46,4 +46,12 @@ exports.removeFromCart = async (req, res, next) => {
   } catch (error) {
     errorHandler(error, req, res, next);
   }
+};
+
+// Export all functions
+module.exports = {
+  addToCart,
+  viewCart,
+  updateCart,
+  removeFromCart,
 };

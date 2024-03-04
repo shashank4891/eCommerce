@@ -4,7 +4,7 @@ const errorHandler = require("../middleware/errorHandler");
 const tokenValidation = require("../middleware/tokenValidation"); // Import tokenValidation middleware
 
 // Controller function to handle order placement
-exports.placeOrder = async (req, res, next) => {
+const placeOrder = async (req, res, next) => {
   try {
     // Validate user token
     tokenValidation(req, res, async () => {
@@ -43,7 +43,7 @@ exports.placeOrder = async (req, res, next) => {
 };
 
 // Controller function to fetch order history for authenticated users
-exports.getOrderHistory = async (req, res, next) => {
+const getOrderHistory = async (req, res, next) => {
   try {
     // Validate user token
     tokenValidation(req, res, async () => {
@@ -61,7 +61,7 @@ exports.getOrderHistory = async (req, res, next) => {
 };
 
 // Controller function to get detailed information of a specific order by its ID
-exports.getOrderById = async (req, res, next) => {
+const getOrderById = async (req, res, next) => {
     try {
         // Validate user token
         tokenValidation(req, res, async () => {
@@ -75,4 +75,10 @@ exports.getOrderById = async (req, res, next) => {
     } catch (error) {
         errorHandler(error, req, res, next);
     }
+};
+
+module.exports = {
+  placeOrder,
+  getOrderHistory,
+  getOrderById
 };

@@ -30,7 +30,4 @@ async function findUserByEmail(email) {
   }
 }
 
-module.exports = {
-  createUser,
-  findUserByEmail,
-};
+module.exports = { createUser, findUserByEmail };

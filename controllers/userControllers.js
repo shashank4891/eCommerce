@@ -1,7 +1,7 @@
 const authService = require("../middleware/authService");
 const errorHandler = require("../middleware/errorHandler");
 
-exports.register = async (req, res, next) => {
+const register = async (req, res, next) => {
   try {
     const user = await authService.register(req.body);
     res.status(201).json(user);
@@ -10,7 +10,7 @@ exports.register = async (req, res, next) => {
   }
 };
 
-exports.login = async (req, res, next) => {
+const login = async (req, res, next) => {
   try {
     const token = await authService.login(req.body);
     res.json({ token });
@@ -18,3 +18,5 @@ exports.login = async (req, res, next) => {
     errorHandler(error, req, res, next);
   }
 };
+
+module.exports = { register, login };

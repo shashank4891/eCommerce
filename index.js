@@ -38,6 +38,11 @@ app.use('/api', orderRouter);
 // Middleware for errorhandling
 app.use(errorHandler);
 
+// Route handler for the root URL
+app.get('/', (req, res) => {
+  res.send('Welcome to E-Commerce API');
+});
+
 app.listen(port, () => {
   console.log(`Server is running on ${port}`);
 });
