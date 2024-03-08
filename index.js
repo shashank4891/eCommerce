@@ -9,6 +9,8 @@ const productListRoutes = require('./routes/productListRoutes');
 const userRouter = require('./routes/userRoutes');
 const cartRouter = require('./routes/cartRoutes');
 const orderRouter = require('./routes/orderRoutes');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger');
 
 // Load environment variables from .env file
 dotenv.config();
@@ -26,8 +28,22 @@ connectDb().then(() => {
 // Set port based on environment variable or use a default value
 const port = process.env.PORT || 8080;
 
-// calling all Routes
+// Route handler for the root URL
+/**
+ * @swagger
+ * /:
+ *   get:
+ *     summary: Welcome to the main pgae of API.
+ *     description: E-Commerce API
+ *     responses:
+ *         200:
+ *            description: To test GET method
+*/
+app.get('/', (req, res) => {
+  res.send('Welcome to E-Commerce API');
+});
 
+// calling all Routes
 app.use('/api', categoryRouter);
 app.use('/api', productRoutes);
 app.use('/api', productListRoutes);
@@ -38,11 +54,9 @@ app.use('/api', orderRouter);
 // Middleware for errorhandling
 app.use(errorHandler);
 
-// Route handler for the root URL
-app.get('/', (req, res) => {
-  res.send('Welcome to E-Commerce API');
-});
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
+// start the server
 app.listen(port, () => {
   console.log(`Server is running on ${port}`);
 });
