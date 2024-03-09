@@ -31,12 +31,12 @@ This project is an E-Commerce API built using Node.js, Express.js and MySql Data
 Create a .env file in the root directory and add the following environment variables:
 
 ```bash
-PORT=8080
+PORT=
 
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=root123
-DB_DATABASE=e-commerce
+DB_HOST=
+DB_USER=
+DB_PASSWORD=
+DB_DATABASE=
 
 JWT_SECRET=your_jwt_secret
 ACCESS_TOKEN_SECRET=your_access_token_secret
@@ -56,6 +56,14 @@ Replace your_jwt_secret and your_access_token_secret with your own secret keys f
 - Category
 
 ```bash
+GET / : Route to the eCommerce main page.
+```
+
+```bash
+GET /api-docs :Swagger Documentation for the eCommerce API.
+```
+
+```bash
 GET /api/category :Get all categories.
 ```
 - Product By Category Id
@@ -72,44 +80,30 @@ GET /api/products/categoryId :Get all product by productId.
 - User
 
 ```bash
-POST /api/register :Register a new user. required json :
-    "email": "hello@example.com",
-    "password": "hello",
-    "first_name": "hello",
-    "last_name": "hello"
-
+POST /api/register :Register a new user.
 ```
 
 ```bash
-POST /api/login :Login as an existing user. required json : 
-    "email": "hello@example.com",
-    "password": "hello"
-
+POST /api/login :Login as an existing user.
 ```
 - Cart
 
 ```bash
-POST /api/add-to-cart :Add a product to the cart. required json:  "user_id": "3",
-    "product_id": "2",
-    "qty": "1"
+POST /api/add-to-cart :Add a product to the cart. 
 ```
 ```bash
 GET /api/view-cart :View the contents of the cart. 
 ```
 ```bash
-PUT /api/update-cart/:product_id :Update quantity of a product in the cart. required json: 
-    "cart_id": "2",
-    "qty": "500"
+PUT /api/update-cart/:product_id :Update quantity of a product in the cart.
 ```
 ```bash
-DELETE /api/remove-from-cart/:product_id :Remove a product from the cart. required json: 
-    "cart_id": "2"
+DELETE /api/remove-from-cart/:product_id :Remove a product from the cart.
 ```
 - Orders
 
 ```bash
-POST /api/orders :Place a new order. required json: 
-    "address": "123 Main Street, City, Country"
+POST /api/orders :Place a new order.
 ```
 ```bash
 GET /api/orders/history :View order history.
