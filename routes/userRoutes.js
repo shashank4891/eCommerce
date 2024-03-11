@@ -8,6 +8,8 @@ const usersController = require('../controllers/userControllers');
  *   post:
  *     summary: To register new user.
  *     description: Registering a new user in eCommerce API
+ *     tags:
+ *       - Users
  *     requestBody:
  *       required: true
  *       content:
@@ -35,6 +37,8 @@ userRouter.post('/register', usersController.register);
  *   post:
  *     summary: To Login a user.
  *     description: Logging a user in eCommerce API
+ *     tags:
+ *       - Users
  *     requestBody:
  *       required: true
  *       content:

@@ -18,6 +18,13 @@ const swaggerOptions = {
         description: "Hosted Server",
       },
     ],
+    tags: [
+      { name: 'Home', description: 'Endpoint related to API homepage' },
+      { name: 'Products', description: 'Endpoints related to product management' },
+      { name: 'Users', description: 'Endpoints related to user management' },
+      { name: 'Cart', description: 'Endpoints related to cart management' },
+      { name: 'Orders', description: 'Endpoints related to order management' }
+    ],
     components: {
       securitySchemes: {
         bearerAuth: {

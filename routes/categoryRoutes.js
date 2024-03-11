@@ -8,6 +8,8 @@ const categoryControllers = require('../controllers/categoryControllers');
  *   get:
  *     summary: To get all available category.
  *     description: Available category in eCommerce API
+ *     tags:
+ *       - Products
  *     responses:
  *         200:
  *            description: To test GET method for category route

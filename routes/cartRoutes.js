@@ -20,6 +20,8 @@ cartRouter.use(tokenValidation);
  *   post:
  *     summary: To add products to cart.
  *     description: Adding products into the logged in user's cart
+ *     tags:
+ *       - Cart
  *     security:
  *       - bearerAuth: []
  *     requestBody:
@@ -47,6 +49,8 @@ cartRouter.post('/add-to-cart', cartControllers.addToCart);
  *   get:
  *     summary: To view products in cart.
  *     description: View products from logged in user's cart
+ *     tags:
+ *       - Cart
  *     security:
  *       - bearerAuth: []
  *     responses:
@@ -61,6 +65,8 @@ cartRouter.get('/view-cart', cartControllers.viewCart);
  *   put:
  *     summary: To update products in cart.
  *     description: Updating products into the logged in user's cart by product Id
+ *     tags:
+ *       - Cart
  *     security:
  *       - bearerAuth: []
  *     requestBody:
@@ -86,6 +92,8 @@ cartRouter.put('/update-cart/:product_id', cartControllers.updateCart);
  *   delete:
  *     summary: To delete product from cart.
  *     description: Deleting products from the logged in user's cart
+ *     tags:
+ *       - Cart
  *     security:
  *       - bearerAuth: []
  *     requestBody:

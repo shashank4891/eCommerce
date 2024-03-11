@@ -33,8 +33,10 @@ const port = process.env.PORT || 8080;
  * @swagger
  * /:
  *   get:
- *     summary: Welcome to the main pgae of API.
+ *     summary: Welcome to the main page of API.
  *     description: E-Commerce API
+ *     tags:
+ *         - Home
  *     responses:
  *         200:
  *            description: To test GET method

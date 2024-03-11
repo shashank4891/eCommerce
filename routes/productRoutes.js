@@ -6,8 +6,10 @@ const productControllers = require('../controllers/productControllers');
  * @swagger
  * /api/category/{categoryID}:
  *   get:
- *     summary: To get all available category by particular ID.
+ *     summary: To get all available category by particular category ID.
  *     description: Available category by ID in eCommerce API
+ *     tags:
+ *       - Products
  *     parameters:
  *         - in: path
  *           name: categoryID

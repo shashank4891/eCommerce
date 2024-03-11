@@ -6,8 +6,10 @@ const productListControllers = require('../controllers/productListControllers');
  * @swagger
  * /api/products/{product_id}:
  *   get:
- *     summary: To get all available products by particular ID.
+ *     summary: To get all available products by particular product ID.
  *     description: Available products by ID in eCommerce API
+ *     tags:
+ *       - Products
  *     parameters:
  *         - in: path
  *           name: product_id

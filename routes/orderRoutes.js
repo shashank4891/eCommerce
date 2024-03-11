@@ -17,6 +17,8 @@ const tokenValidation = require("../middleware/tokenValidation");
  *   post:
  *     summary: To order products from cart.
  *     description: order products from the logged in user's cart
+ *     tags:
+ *       - Orders
  *     security:
  *       - bearerAuth: []
  *     requestBody:
@@ -42,6 +44,8 @@ orderRouter.post("/orders", tokenValidation, orderControllers.placeOrder);
  *   get:
  *     summary: To get order history.
  *     description: order history of the user
+ *     tags:
+ *       - Orders
  *     security:
  *       - bearerAuth: []
  *     responses:
@@ -58,6 +62,8 @@ orderRouter.get("/orders/history", tokenValidation, orderControllers.getOrderHis
  *   get:
  *     summary: To get order history by order Id.
  *     description: fetch order history by order Id
+ *     tags:
+ *       - Orders
  *     parameters:
  *         - in: path
  *           name: orderId
