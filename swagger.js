@@ -13,6 +13,10 @@ const swaggerOptions = {
         url: "http://localhost:8080", 
         description: "Local Development Server",
       },
+      {
+        url: "https://ecommerece-val3.onrender.com", 
+        description: "Hosted Server",
+      },
     ],
     components: {
       securitySchemes: {
