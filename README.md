@@ -7,6 +7,12 @@
 ## Introduction
 
 This project is an E-Commerce API built using Node.js, Express.js and MySql Database. It provides various endpoints for managing Categories, ProductsByCategories, ProductList, RegisterNewUser, LoginUser, AddToCart, ViewCart, UpdateCart, DeleteCartItem, Orders, and more. The API allows users to browse products, add them to their carts, place orders, and view their order history.
+
+## Hosted Link
+```bash
+ https://ecommerece-val3.onrender.com/api-docs/
+```
+
 ## Features
 
 - User Authentication: Users can register and login. Authentication is handled using JSON Web Tokens (JWT).
