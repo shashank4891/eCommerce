@@ -6,7 +6,7 @@
 
 ## Introduction
 
-This project is an E-Commerce API built using Node.js, Express.js and MySql Database. It provides various endpoints for managing Categories, ProductsByCategories, ProductList, RegisterNewUser, LoginUser, AddToCart, ViewCart, UpdateCart, DeleteCartItem, Orders, and more. The API allows users to browse products, add them to their carts, place orders, and view their order history.
+This project is an E-Commerce API built using Node.js, Express.js and MySql Database. It provides various endpoints for managing Categories, ProductsByCategories, ProductList, RegisterNewUser, LoginUser, AddToCart, ViewCart, UpdateCart, DeleteCartItem, Orders, and more. The API allows users to browse products, add them to their carts, place orders, and view their order history. Utilized Swagger for API documentation, making it easy for developers to understand and interact with the endpoints.
 
 ## Hosted Link
 ```bash
